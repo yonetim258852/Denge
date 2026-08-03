@@ -17,7 +17,25 @@ subagent-driven-development, systematic-debugging, test-driven-development,
 using-git-worktrees, using-superpowers, verification-before-completion,
 writing-plans, writing-skills.
 
-Not: Bunlar yazılım geliştirme metodolojisi (TDD, debugging, plan yazma, subagent
-akışları) skill'leridir. Superpowers'ın hook tabanlı otomatik bootstrap mekanizması
-Denge'ye kopyalanmadı; skill'ler açıklamalarına göre yine otomatik keşfedilir. Tam
-plugin davranışı için resmi marketplace: `/plugin install superpowers`.
+Bunlar yazılım geliştirme metodolojisi (TDD, debugging, plan yazma, subagent
+akışları) skill'leridir.
+
+### Otomatik bootstrap hook (taşındı)
+
+Superpowers normalde her oturum başında `using-superpowers` skill'ini bağlama
+enjekte eden bir SessionStart hook ile gelir. Bu hook Denge'ye uyarlanarak taşındı:
+
+- `.claude/hooks/superpowers-session-start.sh` — orijinalin (MIT) `${CLAUDE_PLUGIN_ROOT}`
+  bağımlılığı kaldırılıp **kendi konumunu bulan** sürüme çevrildi; `using-superpowers`
+  skill'ini script'e göre göreli yoldan okur.
+- `.claude/settings.json` — SessionStart hook kaydı (`startup|resume|clear|compact`).
+
+**Aktivasyon:**
+- Denge doğrudan **proje** olarak açılırsa hook otomatik çalışır.
+- Denge başka bir projeye **kaynak (source)** olarak eklendiğinde, hook'un çalışması
+  harness'in kaynak `.claude/settings.json`'ını birleştirmesine bağlıdır. Garanti
+  istiyorsan aynı SessionStart kaydını tüketen projenin kendi `.claude/settings.json`'ına
+  ekleyip komut yolunu Denge kaynak yoluna göre ver.
+- Hook hiç çalışmasa bile skill'ler açıklamalarına göre yine otomatik keşfedilir.
+
+Alternatif (yerel makinede tam plugin davranışı): `/plugin install superpowers`.
