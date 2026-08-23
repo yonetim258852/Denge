@@ -39,3 +39,26 @@ enjekte eden bir SessionStart hook ile gelir. Bu hook Denge'ye uyarlanarak taş�
 - Hook hiç çalışmasa bile skill'ler açıklamalarına göre yine otomatik keşfedilir.
 
 Alternatif (yerel makinede tam plugin davranışı): `/plugin install superpowers`.
+
+## letzdoo/claude-marketplace (Odoo)
+
+- Kaynak: https://github.com/letzdoo/claude-marketplace
+- Commit: `be96e8b` · Lisans: MIT (`LICENSES/letzdoo-claude-marketplace-LICENSE.txt`) · Alınma: 2026-08-03
+- Eklenen: `odoo-development` (modül geliştirme, Odoo 14-19, OWL, migration), `odoo-query` (XML-RPC salt-okunur canlı sorgu — yazma protokol seviyesinde engelli).
+
+## ChanMeng666/typst-claude-skill (katalog/baskı dizgisi)
+
+- Kaynak: https://github.com/ChanMeng666/typst-claude-skill
+- Commit: `9f8db80` · Lisans: MIT (`LICENSES/typst-claude-skill-LICENSE.txt`) · Alınma: 2026-08-03
+- Eklenen: `typst` — Typst dizgi sistemi; veri-güdümlü, baskı kalitesinde ürün kataloğu üretimi.
+
+## anthropics/skills (resmi Anthropic)
+
+- Kaynak: https://github.com/anthropics/skills
+- Commit: `3b3fad9` · Lisans: Apache-2.0 (`LICENSES/anthropics-skills-LICENSE.txt`) · Alınma: 2026-08-03
+- Eklenen: `mcp-builder` (MCP sunucusu geliştirme — Odoo/veri kaynaklarını Claude'a bağlama), `webapp-testing` (Playwright ile web uygulama testi).
+- Not: `mcp-builder` claude.ai hesabında da etkin olabilir; Denge kopyası hesaptan bağımsız Code oturumları içindir.
+
+## Kürasyon kaydı (2026-08-03)
+
+142 → 89: 58 skill silindi (tekrar/SaaS-funnel/oyun-3D), 5 eklendi. Detay: `BUNDLES.md` + Denge PR #1. Silinenlerin kaynak kayıtları `ozgur-os/skills-lock.json` içinde; git geçmişinden de geri alınabilir.
